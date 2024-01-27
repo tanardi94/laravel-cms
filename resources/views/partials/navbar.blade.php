@@ -1,6 +1,3 @@
-@extends('layouts.app')
-
-@section('navbar')
 <div class="container-fluid py-1 px-3">
     <nav aria-label="breadcrumb">
       <ol class="breadcrumb bg-transparent mb-0 pb-0 pt-1 px-0 me-sm-6 me-5">
@@ -17,12 +14,6 @@
         </div>
       </div>
       <ul class="navbar-nav  justify-content-end">
-        <li class="nav-item d-flex align-items-center">
-          <a class="btn btn-outline-primary btn-sm mb-0 me-3" target="_blank" href="https://www.creative-tim.com/builder?ref=navbar-material-dashboard">Online Builder</a>
-        </li>
-        <li class="mt-2">
-          <a class="github-button" href="https://github.com/creativetimofficial/material-dashboard" data-icon="octicon-star" data-size="large" data-show-count="true" aria-label="Star creativetimofficial/material-dashboard on GitHub">Star</a>
-        </li>
         <li class="nav-item d-xl-none ps-3 d-flex align-items-center">
           <a href="javascript:;" class="nav-link text-body p-0" id="iconNavbarSidenav">
             <div class="sidenav-toggler-inner">
@@ -32,11 +23,8 @@
             </div>
           </a>
         </li>
-        <li class="nav-item px-3 d-flex align-items-center">
-          <a href="javascript:;" class="nav-link text-body p-0">
-            <i class="fa fa-cog fixed-plugin-button-nav cursor-pointer"></i>
-          </a>
-        </li>
+
+        {{-- Notification Section --}}
         <li class="nav-item dropdown pe-2 d-flex align-items-center">
           <a href="javascript:;" class="nav-link text-body p-0" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
             <i class="fa fa-bell cursor-pointer"></i>
@@ -110,13 +98,38 @@
             </li>
           </ul>
         </li>
-        <li class="nav-item d-flex align-items-center">
-          <a href="../pages/sign-in.html" class="nav-link text-body font-weight-bold px-0">
-            <i class="fa fa-user me-sm-1"></i>
-            <span class="d-sm-inline d-none">Sign In</span>
-          </a>
+
+
+        {{-- End of Notification Setting --}}
+
+        {{-- User Setting --}}
+        <li class="nav-item dropdown pe-2 d-flex align-items-center">
+            <a href="javascript:;" class="nav-link text-body p-0" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+                <i class="fa fa-user me-sm-1"></i>
+            </a>
+            <ul class="dropdown-menu  dropdown-menu-end  px-2 py-3 me-sm-n4" aria-labelledby="dropdownMenuButton">
+                <li class="mb-2">
+                    <a class="dropdown-item border-radius-md" href="javascript:;">
+                        <h6 class="text-sm font-weight-normal mb-1">
+                          <span class="font-weight-bold">Profile</span>
+                        </h6>
+                    </a>
+                  </li>
+                <li class="mb-2">
+                    <form action="{{ route('auth.logout') }}" method="post">
+                        @csrf
+                        <button type="submit" class="dropdown-item border-radius-md">
+                        <h6 class="text-sm font-weight-normal mb-1">
+                            <span class="font-weight-bold">Logout</span>
+                        </h6>
+                        </button>
+                    </form>
+                  </li>
+            </ul>
         </li>
+
+        {{-- End of User Setting --}}
+
       </ul>
     </div>
   </div>
-@endsection
