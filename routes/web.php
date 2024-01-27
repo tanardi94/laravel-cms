@@ -14,11 +14,18 @@ use App\Http\Controllers;
 |
 */
 
-Route::get('/', Controllers\Login\IndexController::class)->name('auth.login.index');
-Route::get('/register', Controllers\Login\IndexRegisterController::class)->name('auth.register.index');
-Route::post('/login', Controllers\Login\LoginController::class)->name('auth.login.post');
-Route::post('/register', Controllers\Login\RegisterController::class)->name('auth.register.post');
+Route::group(['middleware' => 'guest'], function() {
+    Route::get('/', Controllers\Login\IndexController::class)->name('auth.login.index');
+    Route::get('/register', Controllers\Login\IndexRegisterController::class)->name('auth.register.index');
+    Route::post('/login', Controllers\Login\LoginController::class)->name('auth.login.post');
+    Route::post('/register', Controllers\Login\RegisterController::class)->name('auth.register.post');
+});
+
 Route::post('/logout', Controllers\Login\LogoutController::class)->name('auth.logout');
+Route::get('/profile', Controllers\Login\ProfileController::class)->name('auth.profile');
+Route::get('/notify', function() {
+    return redirect()->route('pages.dashboard.index')->with('success', 'Message Success');
+});
 
 Route::prefix('pages')->as('pages.')->group(function () {
     include 'modules/dashboard.php';
