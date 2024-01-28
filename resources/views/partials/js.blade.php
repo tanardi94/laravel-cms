@@ -16,9 +16,10 @@
         toastr.options = {
             timeOut: 10000,
             positionClass: 'toast-top-center',
-            // tapToDismiss: true,
         }
+
         switch (type) {
+
             case 'info':
                 toastr.info("{{ Session::get('message') }}", 'FYI');
                 break;
@@ -29,13 +30,12 @@
 
             case 'warning':
                 toastr.warning("{{ Session::get('message') }}", 'Please Be Careful!');
-
                 break;
 
             case 'error':
                 toastr.error("{!! Session::get('message') !!}", 'There are errors!');
-
                 break;
+
         }
     @endif
 </script>
