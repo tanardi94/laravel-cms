@@ -532,7 +532,7 @@
 @endsection
 
 
-@section('scripts')
+@push('scripts')
     <script>
         var ctx = document.getElementById("chart-bars").getContext("2d");
 
@@ -780,4 +780,4 @@
             },
         });
     </script>
-@endsection
+@endpush

@@ -4,6 +4,8 @@
 <script src={{asset('js/plugins/smooth-scrollbar.min.js')}}></script>
 <script src={{asset('js/plugins/chartjs.min.js')}}></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js"></script>
+<script src="{{ asset('js/datatables.min.js') }}"></script>
 
 <!-- Github buttons -->
 <script async defer src="https://buttons.github.io/buttons.js"></script>

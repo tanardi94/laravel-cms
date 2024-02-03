@@ -40,4 +40,6 @@ Route::get('/notify', function() {
 
 Route::prefix('pages')->middleware('auth')->as('pages.')->group(function () {
     include 'modules/dashboard.php';
+    include 'modules/user.php';
+    include 'modules/billing.php';
 });
