@@ -2,8 +2,8 @@
 <html lang="en">
 
 <head>
-    @yield('heads')
     @include('partials.head')
+    @yield('heads')
 </head>
 
 <body class="g-sidenav-show  bg-gray-200">

@@ -24,6 +24,7 @@ Route::group(['middleware' => 'guest'], function() {
 Route::post('/logout', Controllers\Login\LogoutController::class)->name('auth.logout');
 Route::get('/profile', Controllers\Login\ProfileController::class)->name('auth.profile');
 Route::get('/notify', function() {
+    abort(403);
     $errors = collect([1,2,3]);
     $message = "<ul>";
     foreach ($errors->all() as $error) {
