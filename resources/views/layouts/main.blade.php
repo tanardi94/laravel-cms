@@ -2,6 +2,7 @@
 <html lang="en">
 
 <head>
+    @yield('heads')
     @include('partials.head')
 </head>
 
