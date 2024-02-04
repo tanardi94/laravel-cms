@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Dashboard;
+namespace App\Http\Controllers\Role;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
@@ -14,11 +14,11 @@ class IndexController extends Controller
     {
         $breadcrumbs = [
             [
-                'url' => route('pages.dashboard.index'),
-                'title' => 'Dashboard',
-            ],
+                'url' => route('pages.role.index'),
+                'title' => 'Manage Roles',
+            ]
         ];
 
-        return view('pages.dashboard.index', compact('breadcrumbs'));
+        return view('pages.role-permission.index', compact('breadcrumbs'));
     }
 }

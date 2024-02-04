@@ -12,6 +12,13 @@ class IndexController extends Controller
      */
     public function __invoke(Request $request)
     {
-        return view('pages.billing.index');
+        $breadcrumbs = [
+            [
+                'url' => route('pages.billing.index'),
+                'title' => 'Billing',
+            ]
+        ];
+
+        return view('pages.billing.index', compact('breadcrumbs'));
     }
 }

@@ -2,11 +2,10 @@
 
 namespace App\Http\Controllers\User;
 
-use App\DataTables\UsersDataTable;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-class IndexController extends Controller
+class CreateController extends Controller
 {
     /**
      * Handle the incoming request.
@@ -17,8 +16,13 @@ class IndexController extends Controller
             [
                 'url' => route('pages.user.index'),
                 'title' => 'Manage Users',
+            ],
+            [
+                'url' => route('pages.user.create'),
+                'title' => 'Create User'
             ]
         ];
-        return view('pages.user.index', compact('breadcrumbs'));
+
+        return view('pages.user.create', compact('breadcrumbs'));
     }
 }

@@ -1,5 +1,6 @@
 <?php
 
+use App\Helpers\NotificationHelper;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers;
 
@@ -22,9 +23,8 @@ Route::group(['middleware' => 'guest'], function() {
 });
 
 Route::post('/logout', Controllers\Login\LogoutController::class)->name('auth.logout');
-Route::get('/profile', Controllers\Login\ProfileController::class)->name('auth.profile');
+
 Route::get('/notify', function() {
-    abort(403);
     $errors = collect([1,2,3]);
     $message = "<ul>";
     foreach ($errors->all() as $error) {
@@ -35,11 +35,13 @@ Route::get('/notify', function() {
         'message' => $message,
         'alert-type' => 'error',
     ];
-    return redirect()->route('pages.dashboard.index')->with($notification);
+    // return redirect()->route('pages.dashboard.index')->with(NotificationHelper::notifyErrorList($errors));
 });
 
 Route::prefix('pages')->middleware('auth')->as('pages.')->group(function () {
+    Route::get('/profile', Controllers\Login\ProfileController::class)->name('auth.profile');
     include 'modules/dashboard.php';
     include 'modules/user.php';
     include 'modules/billing.php';
+    include 'modules/role.php';
 });

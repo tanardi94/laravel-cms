@@ -12,6 +12,12 @@ class ProfileController extends Controller
      */
     public function __invoke(Request $request)
     {
-        return view('pages.auth.profile');
+        $breadcrumbs = [
+            [
+                'url' => route('pages.auth.profile'),
+                'title' => 'User Profile',
+            ]
+        ];
+        return view('pages.auth.profile', compact('breadcrumbs'));
     }
 }

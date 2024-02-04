@@ -2,6 +2,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link rel="apple-touch-icon" sizes="76x76" href="{{asset("img/apple-icon.png")}}">
 <link rel="icon" type="image/png" href="{{asset("img/favicon.png")}}">
+<meta content="initial-scale=1, shrink-to-fit=no, width=device-width" name="viewport">
+
 <title>
 Basic CMS
 </title>
@@ -21,3 +23,4 @@ Basic CMS
 <script defer data-site="YOUR_DOMAIN_HERE" src="https://api.nepcha.com/js/nepcha-analytics.js"></script>
 <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css" rel="stylesheet">
 <link href="https://cdn.datatables.net/1.13.7/css/jquery.dataTables.min.css" rel="stylesheet">
+

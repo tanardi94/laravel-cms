@@ -1,6 +1,9 @@
 <?php
 namespace App\Helpers;
 
+use Exception;
+use Illuminate\Support\Collection;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\MessageBag;
 
 class NotificationHelper
@@ -21,17 +24,26 @@ class NotificationHelper
         ];
     }
 
-    public static function notifyError(MessageBag $errors): array
+    public static function notifyErrorList(MessageBag $errors): array
     {
         $message = '<ul>';
         foreach ($errors->all() as $error) {
             $message .= "<li>$error</li>";
         }
-        $message .+ "</ul>";
+        $message .= "</ul>";
 
         return [
-            'alert-type' => 'errors',
+            'alert-type' => 'error',
             'message' => $message,
+        ];
+    }
+
+    public static function notifyError(Exception $e): array
+    {
+        Log::error("Error at {$e->getFile()} line {$e->getLine()}: {$e->getMessage()}");
+        return [
+            'alert-type' => 'error',
+            'message' => "Something went wrong",
         ];
     }
 
