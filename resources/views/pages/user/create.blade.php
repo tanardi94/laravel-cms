@@ -1,7 +1,7 @@
 @extends('layouts.main')
 
 @section('navbar')
-    @include('partials.navbar', ['pages' => 'Create User'])
+    @include('partials.navbar', ['breadcrumbs' => $breadcrumbs])
 @endsection
 
 @section('content')

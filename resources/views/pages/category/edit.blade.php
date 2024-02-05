@@ -8,10 +8,10 @@
 
 <div class="row">
     <div class="col-sm-12">
-        <form action="{{ route('pages.user.update', $user->uuid) }}" method="POST">
+        <form action="{{ route('pages.category.update', $category->uuid) }}" method="POST">
             @csrf
             @method('PUT')
-            @include('pages.user._form', ['submitButtonText' => 'Simpan'])
+            @include('pages.category._form', ['submitButtonText' => 'Simpan'])
         </form>
     </div>
 </div>

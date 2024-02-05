@@ -21,4 +21,9 @@ class BaseModel extends Model
             $q->uuid = Str::uuid();
         });
     }
+
+    public function scopeFindByUID($query, $uid)
+    {
+        return $query->where('uuid', $uid);
+    }
 }

@@ -44,4 +44,5 @@ Route::prefix('pages')->middleware('auth')->as('pages.')->group(function () {
     include 'modules/user.php';
     include 'modules/billing.php';
     include 'modules/role.php';
+    include 'modules/category.php';
 });
