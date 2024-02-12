@@ -18,7 +18,7 @@ use App\Http\Controllers;
 Route::group(['middleware' => 'guest'], function() {
     Route::get('/', Controllers\Login\IndexController::class)->name('auth.login.index');
     Route::get('/{social}/auth', Controllers\Login\IndexSocialController::class)->name('auth.social.redirect');
-    Route::post('/{social}/auth', Controllers\Login\IndexSocialController::class)->name('auth.social.redirect');
+    Route::get('/{social}/auth/callback', Controllers\Login\SocialAuthController::class)->name('auth.social.login');
     Route::get('/register', Controllers\Login\IndexRegisterController::class)->name('auth.register.index');
     Route::post('/login', Controllers\Login\LoginController::class)->name('auth.login.post');
     Route::post('/register', Controllers\Login\RegisterController::class)->name('auth.register.post');
